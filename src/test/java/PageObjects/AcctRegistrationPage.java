@@ -27,6 +27,15 @@ public class AcctRegistrationPage extends BasePage {
     @FindBy(xpath = "//input[@id='input-confirm']")
     WebElement confirmPasswdELem;
 
+    @FindBy(xpath = "//input[@type='checkbox' and @name='agree']")
+    WebElement privacyElem;
+
+    @FindBy(xpath = "//input[@type='submit' and @value='Continue']")
+    WebElement continueElem;
+
+    @FindBy(xpath = "(//h1)[2]")
+    WebElement registrationStatus;
+
     public void setFirstName(String firstName) {
         firstNameELem.sendKeys(firstName);
     }
@@ -51,7 +60,19 @@ public class AcctRegistrationPage extends BasePage {
         confirmPasswdELem.sendKeys(confirmPasswd);
     }
 
+    public void checkPrivacy() {
+        privacyElem.click();
+    }
+
+    public void clickContinue() {
+        continueElem.click();
+    }
+
     public String getConfirmationMsg () {
-        return "Successful!";
+        try {
+            return registrationStatus.getText();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 }
