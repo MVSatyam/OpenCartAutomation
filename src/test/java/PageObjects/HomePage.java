@@ -16,11 +16,18 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//ul//a[text() = 'Register']")
     WebElement registerElem;
 
+    @FindBy(xpath = "//ul//a[text() = 'Login']")
+    WebElement loginElem;
+
     public void clickMyAcctElem() {
         myAcctElem.click();
     }
 
     public void clickRegisterElem() {
         registerElem.click();
+    }
+
+    public void clickLoginElem() {
+        loginElem.click();
     }
 }
