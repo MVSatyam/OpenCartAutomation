@@ -4,12 +4,13 @@ import PageObjects.HomePage;
 import PageObjects.LoginPage;
 import PageObjects.MyAcctPage;
 import TestBase.BaseClassForTests;
+import Utilities.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AcctLoginTest extends BaseClassForTests {
-    @Test
-    public void acctLogin() {
+    @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class)
+    public void acctLogin(String email, String password, String exp) {
         logger.info("***** Start of the AcctLoginTest *****");
 
         try {
@@ -24,13 +25,21 @@ public class AcctLoginTest extends BaseClassForTests {
             homePage.clickLoginElem();
 
             logger.info("Providing credentials");
-            loginPage.setEmail(properties.getProperty("email"));
-            loginPage.setPassword(properties.getProperty("password"));
+            loginPage.setEmail(email);
+            loginPage.setPassword(password);
             loginPage.clickLoginBtn();
 
             boolean isMyAcctPageExists = myAcctPage.isMyAcctPageExists();
 
-            Assert.assertTrue(isMyAcctPageExists, "Testcase is failed");
+            if (isMyAcctPageExists) {
+                myAcctPage.clickLogoutElem();
+                Assert.assertTrue(true);
+            } else {
+                Assert.fail("Testcase failed");
+            }
+
+
+
         } catch (Exception e) {
             Assert.fail("Testcase is failed");
         }
