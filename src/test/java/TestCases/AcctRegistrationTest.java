@@ -44,9 +44,9 @@ public class AcctRegistrationTest extends BaseClassForTests {
 //            }
         } catch (AssertionError error) {
             logger.error("Assertion Error", error);
-            Assert.fail();
+            Assert.fail(error.getMessage());
         } catch (Exception e) {
-            Assert.fail();
+            Assert.fail(e.getMessage());
         }
     }
 }

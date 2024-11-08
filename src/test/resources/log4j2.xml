@@ -4,7 +4,7 @@
         <Console name="CONSOLE">
             <PatternLayout pattern="%p - %m%n"/>
         </Console>
-        <File name="MAIN" fileName="logs/main.log">
+        <File name="MAIN" fileName="logs/main.log" append="false">
             <PatternLayout pattern="%d [%t] %p %c - %m%n"/>
         </File>
 <!--        <File name="DEBUG_LOG" fileName="logs/debug.log">-->
