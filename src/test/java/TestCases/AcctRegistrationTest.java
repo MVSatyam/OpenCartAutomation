@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class AcctRegistrationTest extends BaseClassForTests {
 
-    @Test
+    @Test(groups = { "master", "sanity" })
     public void acctRegistration() {
         logger.info("***** Start of the Account Registration *****");
         HomePage homePage = new HomePage(driver);
@@ -22,12 +22,12 @@ public class AcctRegistrationTest extends BaseClassForTests {
             homePage.clickRegisterElem();
 
             logger.info("Providing details");
-            acctRegistrationPage.setFirstName("nextgen");
+            acctRegistrationPage.setFirstName("parent");
             acctRegistrationPage.setLastName("del");
-            acctRegistrationPage.setEmail("nextgen@gamil.com");
+            acctRegistrationPage.setEmail("parent@gamil.com");
             acctRegistrationPage.setTelephone("35634745643");
-            acctRegistrationPage.setPassword("nextgen123");
-            acctRegistrationPage.setConfirmPasswd("nextgen123");
+            acctRegistrationPage.setPassword("parent123");
+            acctRegistrationPage.setConfirmPasswd("parent123");
             acctRegistrationPage.checkPrivacy();
             acctRegistrationPage.clickContinue();
 

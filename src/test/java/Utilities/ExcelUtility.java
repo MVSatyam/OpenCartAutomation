@@ -14,8 +14,6 @@ public class ExcelUtility {
     XSSFWorkbook wb;
     XSSFSheet sheet;
     XSSFRow row;
-    XSSFCell cell;
-    XSSFCellStyle cellStyle;
     String path;
 
     public ExcelUtility(String path) {

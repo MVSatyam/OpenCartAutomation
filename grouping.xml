@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="AcctLoginTest">
+
+    <groups>
+        <run>
+            <include name="master" />
+<!--            <exclude name="sanity" />-->
+        </run>
+    </groups>
+
+    <test verbose="2" preserve-order="true" name="Acct Registration and Login Tests">
         <parameter name="os" value="windows" />
         <parameter name="browser" value="chrome" />
         <classes>
@@ -9,4 +17,5 @@
             <class name="TestCases.AcctLoginTest" />
         </classes>
     </test>
+
 </suite>

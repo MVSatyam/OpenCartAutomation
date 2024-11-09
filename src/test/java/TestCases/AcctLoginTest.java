@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AcctLoginTest extends BaseClassForTests {
-    @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups = { "master", "regression" })
     public void acctLogin(String email, String password, String exp) {
         logger.info("***** Start of the AcctLoginTest *****");
 

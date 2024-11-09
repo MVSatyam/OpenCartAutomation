@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <groups>
+        <run>
+            <include name="master" />
+<!--            <exclude name="sanity" />-->
+        </run>
+    </groups>
+
+    <listeners>
+        <listener class-name="Utilities.ExtentReportManager" />
+    </listeners>
+
+    <test verbose="2" preserve-order="true" name="Acct Registration and Login Tests">
+        <parameter name="os" value="windows" />
+        <parameter name="browser" value="edge" />
+        <classes>
+            <class name="TestCases.AcctRegistrationTest" />
+            <class name="TestCases.AcctLoginTest" />
+        </classes>
+    </test>
+
+</suite>
